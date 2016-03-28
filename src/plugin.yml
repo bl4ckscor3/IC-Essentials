@@ -1,0 +1,9 @@
+name: IC-Essentials
+main: com.igneouscraft.plugin.icessentials.ICEssentials
+version: 0.1
+author: [bl4ckscor3]
+description: Adds tons of essentials to the server!
+commands:
+    example:
+        description: Example command.
+        usage: /<command>

@@ -5,6 +5,7 @@ import org.bukkit.event.Listener;
 
 /**
  * Models a feature of this plugin
+ * You need to handle disabling non command features yourself
  * @author bl4ckscor3
  */
 public abstract class Feature

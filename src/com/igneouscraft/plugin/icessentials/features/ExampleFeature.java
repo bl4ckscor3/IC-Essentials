@@ -2,6 +2,7 @@ package com.igneouscraft.plugin.icessentials.features;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.plugin.Plugin;
 
 import com.igneouscraft.plugin.icessentials.CommandFeature;
 
@@ -12,7 +13,7 @@ import com.igneouscraft.plugin.icessentials.CommandFeature;
 public class ExampleFeature extends CommandFeature
 {
 	@Override
-	public void executeCommand(CommandSender sender, String[] args)
+	public void executeCommand(Plugin pl, CommandSender sender, String[] args)
 	{
 		String result = "";
 		
@@ -48,6 +49,6 @@ public class ExampleFeature extends CommandFeature
 	@Override
 	public String getChatPrefix()
 	{
-		return ChatColor.AQUA + "You wrote > " + ChatColor.DARK_AQUA ; //custom chat prefix
+		return ChatColor.AQUA + "You wrote > " + ChatColor.DARK_AQUA; //custom chat prefix
 	}
 }

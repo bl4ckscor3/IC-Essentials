@@ -9,6 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.igneouscraft.plugin.icessentials.features.ExampleFeature;
+import com.igneouscraft.plugin.icessentials.features.ReloadPlugin;
 
 /**
  * The main class of this plugin. Please only add features in here and don't modify anything else
@@ -18,7 +19,7 @@ import com.igneouscraft.plugin.icessentials.features.ExampleFeature;
 public class ICEssentials extends JavaPlugin
 {
 	/**The default prefix of messages*/
-	public static final String prefix = ChatColor.GREEN + "[" + ChatColor.GOLD + "Essentials" + ChatColor.GREEN + "] " + ChatColor.WHITE;
+	public static final String prefix = ChatColor.GREEN + "[" + ChatColor.GOLD + "IC-Essentials" + ChatColor.GREEN + "] " + ChatColor.WHITE;
 	/**Contains all features with commands*/
 	private static final ArrayList<CommandFeature> commandFeatures = new ArrayList<CommandFeature>();
 	
@@ -28,7 +29,9 @@ public class ICEssentials extends JavaPlugin
 		reloadConfig();
 		//add your features alphabetically below this line
 		addFeature(new ExampleFeature()); //adding the example feature
+		addFeature(new ReloadPlugin());
 		//no more features below this line
+		getConfig().options().copyDefaults(true);
 		saveConfig();
 		getServer().getConsoleSender().sendMessage(prefix + "Successfully loaded all features.");
 	}
@@ -39,7 +42,12 @@ public class ICEssentials extends JavaPlugin
 		for(CommandFeature f : commandFeatures)
 		{
 			if(cmd.getName().equals(f.getCommandName()))
-				f.executeCommand(sender, args);
+			{
+				if(getConfig().getBoolean(f.getConfigPath()))
+					f.executeCommand(this, sender, args);
+				else
+					sender.sendMessage(prefix + "This feature is disabled.");
+			}
 		}
 		
 		return true;

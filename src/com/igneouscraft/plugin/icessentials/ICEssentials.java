@@ -9,6 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.igneouscraft.plugin.icessentials.features.ExampleFeature;
+import com.igneouscraft.plugin.icessentials.features.HelpMenu;
 import com.igneouscraft.plugin.icessentials.features.ReloadPlugin;
 
 /**
@@ -21,7 +22,7 @@ public class ICEssentials extends JavaPlugin
 	/**The default prefix of messages*/
 	public static final String prefix = ChatColor.GREEN + "[" + ChatColor.GOLD + "IC-Essentials" + ChatColor.GREEN + "] " + ChatColor.WHITE;
 	/**Contains all features with commands*/
-	private static final ArrayList<CommandFeature> commandFeatures = new ArrayList<CommandFeature>();
+	private static final ArrayList<Feature> features = new ArrayList<Feature>();
 	
 	@Override
 	public void onEnable()
@@ -30,6 +31,7 @@ public class ICEssentials extends JavaPlugin
 		//add your features alphabetically below this line
 		addFeature(new ExampleFeature()); //adding the example feature
 		addFeature(new ReloadPlugin());
+		addFeature(new HelpMenu(features)); //this needs to be at the bottom at all times
 		//no more features below this line
 		getConfig().options().copyDefaults(true);
 		saveConfig();
@@ -39,8 +41,13 @@ public class ICEssentials extends JavaPlugin
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
 	{
-		for(CommandFeature f : commandFeatures)
+		for(Feature iF : features) //iF stands for initial feature
 		{
+			if(!(iF instanceof CommandFeature))
+				continue;
+			
+			CommandFeature f = (CommandFeature)iF;
+			
 			if(cmd.getName().equals(f.getCommandName()))
 			{
 				if(getConfig().getBoolean(f.getConfigPath()))
@@ -69,7 +76,6 @@ public class ICEssentials extends JavaPlugin
 			}
 		}
 		
-		if(feature instanceof CommandFeature)
-			commandFeatures.add((CommandFeature)feature);
+		features.add(feature);
 	}
 }

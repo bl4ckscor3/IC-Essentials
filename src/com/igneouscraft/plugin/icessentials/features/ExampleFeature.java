@@ -41,14 +41,38 @@ public class ExampleFeature extends CommandFeature
 	}
 
 	@Override
+	public String getChatPrefix()
+	{
+		return ChatColor.AQUA + "You wrote > " + ChatColor.DARK_AQUA; //custom chat prefix
+	}
+
+	@Override
+	public String getSyntax()
+	{
+		return "/example [sentence]";
+	}
+
+	@Override
+	public String[] getExplanation()
+	{
+		return new String[]{"Echoes everything you say after the command."};
+	}
+
+	@Override
+	public String getVersion()
+	{
+		return "0.1";
+	}
+
+	@Override
 	public String getAuthor()
 	{
 		return "bl4ckscor3"; //i am the author, so i add my name here
 	}
 	
 	@Override
-	public String getChatPrefix()
+	public boolean useDefaultPrefix()
 	{
-		return ChatColor.AQUA + "You wrote > " + ChatColor.DARK_AQUA; //custom chat prefix
+		return true;
 	}
 }

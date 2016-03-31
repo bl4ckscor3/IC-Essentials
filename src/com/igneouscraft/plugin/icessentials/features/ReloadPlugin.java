@@ -32,8 +32,32 @@ public class ReloadPlugin extends CommandFeature
 	}
 
 	@Override
+	public String getSyntax()
+	{
+		return "/icreload";
+	}
+
+	@Override
+	public String[] getExplanation()
+	{
+		return new String[]{"Reloads this plugin."};
+	}
+
+	@Override
+	public String getVersion()
+	{
+		return "0.1";
+	}
+
+	@Override
 	public String getAuthor()
 	{
-		return "bl4ckscor3";
+		return "bl4ckscor3"; //i am the author, so i add my name here
+	}
+	
+	@Override
+	public boolean useDefaultPrefix()
+	{
+		return false;
 	}
 }

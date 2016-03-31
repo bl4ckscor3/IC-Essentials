@@ -9,7 +9,7 @@ import org.bukkit.plugin.Plugin;
  * NOTE: You still need to add the command to the plugin.yml, this is not done automatically for you
  * @author bl4ckscor3
  */
-public abstract class CommandFeature extends Feature
+public abstract class CommandFeature extends Feature implements ICommandHelp
 {
 	/**
 	 * Executes the command of this feature. NOTE: You can still limit the command to only Player or only Console etc. in this method
@@ -23,4 +23,10 @@ public abstract class CommandFeature extends Feature
 	 * @return The String that triggers the command. NOTE: You can still add aliases to the plugin.yml without interfering with anything
 	 */
 	public abstract String getCommandName();
+	
+	@Override
+	public final String getName()
+	{
+		return getCommandName();
+	}
 }

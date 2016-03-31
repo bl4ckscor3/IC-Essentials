@@ -8,7 +8,7 @@ import org.bukkit.event.Listener;
  * You need to handle disabling non command features yourself
  * @author bl4ckscor3
  */
-public abstract class Feature
+public abstract class Feature implements IHelp
 {
 	/**
 	 * @return All listeners this feature requires. "return null" if none are needed. Please create your own listeners instead of using already existing ones
@@ -19,14 +19,14 @@ public abstract class Feature
 	}
 	
 	/**
+	 * @return The name of this feature used in the help menu to determine if the given feature is the correct one
+	 */
+	public abstract String getName();
+	
+	/**
 	 * @return The path to the config value to enable/disable this feature
 	 */
 	public abstract String getConfigPath();
-	
-	/**
-	 * @return The author of this feature
-	 */
-	public abstract String getAuthor();
 	
 	/**
 	 * @return The prefix that will be used when sending a message to an instance (player, console, etc)

@@ -1,10 +1,10 @@
-package com.igneouscraft.plugin.icessentials.features;
+package net.igneouscraft.plugin.icessentials.features;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.Plugin;
 
-import com.igneouscraft.plugin.icessentials.CommandFeature;
+import net.igneouscraft.plugin.icessentials.CommandFeature;
 
 /**
  * An example feature to show how the usage of this system is supposed to work

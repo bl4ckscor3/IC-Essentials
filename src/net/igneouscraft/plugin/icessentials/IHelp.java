@@ -1,4 +1,4 @@
-package com.igneouscraft.plugin.icessentials;
+package net.igneouscraft.plugin.icessentials;
 
 /**
  * Contains methods used in the help for each feature

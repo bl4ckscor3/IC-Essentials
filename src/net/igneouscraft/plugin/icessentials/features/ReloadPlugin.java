@@ -1,9 +1,9 @@
-package com.igneouscraft.plugin.icessentials.features;
+package net.igneouscraft.plugin.icessentials.features;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.Plugin;
 
-import com.igneouscraft.plugin.icessentials.CommandFeature;
+import net.igneouscraft.plugin.icessentials.CommandFeature;
 
 /**
  * A feature to reload the plugin

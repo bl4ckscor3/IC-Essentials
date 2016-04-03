@@ -1,4 +1,4 @@
-package com.igneouscraft.plugin.icessentials;
+package net.igneouscraft.plugin.icessentials;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Listener;

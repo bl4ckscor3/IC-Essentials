@@ -1,4 +1,4 @@
-package com.igneouscraft.plugin.icessentials;
+package net.igneouscraft.plugin.icessentials;
 
 import java.util.ArrayList;
 
@@ -8,9 +8,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.igneouscraft.plugin.icessentials.features.ExampleFeature;
-import com.igneouscraft.plugin.icessentials.features.HelpMenu;
-import com.igneouscraft.plugin.icessentials.features.ReloadPlugin;
+import net.igneouscraft.plugin.icessentials.features.ExampleFeature;
+import net.igneouscraft.plugin.icessentials.features.HelpMenu;
+import net.igneouscraft.plugin.icessentials.features.ReloadPlugin;
 
 /**
  * The main class of this plugin. Please only add features in here and don't modify anything else

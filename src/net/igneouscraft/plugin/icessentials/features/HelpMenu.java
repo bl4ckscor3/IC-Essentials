@@ -1,4 +1,4 @@
-package com.igneouscraft.plugin.icessentials.features;
+package net.igneouscraft.plugin.icessentials.features;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,10 +6,9 @@ import java.util.Arrays;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.Plugin;
 
-import com.igneouscraft.plugin.icessentials.CommandFeature;
-import com.igneouscraft.plugin.icessentials.Feature;
-import com.igneouscraft.plugin.icessentials.ICEssentials;
-
+import net.igneouscraft.plugin.icessentials.CommandFeature;
+import net.igneouscraft.plugin.icessentials.Feature;
+import net.igneouscraft.plugin.icessentials.ICEssentials;
 import net.md_5.bungee.api.ChatColor;
 
 /**

@@ -54,10 +54,4 @@ public class ReloadPlugin extends CommandFeature
 	{
 		return "bl4ckscor3"; //i am the author, so i add my name here
 	}
-	
-	@Override
-	public boolean useDefaultPrefix()
-	{
-		return false;
-	}
 }

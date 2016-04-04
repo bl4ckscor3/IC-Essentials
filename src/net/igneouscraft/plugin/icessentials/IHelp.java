@@ -20,9 +20,4 @@ public interface IHelp
 	 * @return The author of this feature
 	 */
 	public abstract String getAuthor();
-	
-	/**
-	 * @return Wether or not to use the custom message prefix to send the help
-	 */
-	public abstract boolean useDefaultPrefix();
 }

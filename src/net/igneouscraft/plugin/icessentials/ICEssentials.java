@@ -10,6 +10,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import net.igneouscraft.plugin.icessentials.features.ExampleFeature;
 import net.igneouscraft.plugin.icessentials.features.HelpMenu;
+import net.igneouscraft.plugin.icessentials.features.RainbowBeacons;
 import net.igneouscraft.plugin.icessentials.features.ReloadPlugin;
 
 /**
@@ -30,6 +31,7 @@ public class ICEssentials extends JavaPlugin
 		reloadConfig();
 		//add your features alphabetically below this line
 		addFeature(new ExampleFeature()); //adding the example feature
+		addFeature(new RainbowBeacons(this));
 		addFeature(new ReloadPlugin());
 		addFeature(new HelpMenu(features)); //this needs to be at the bottom at all times
 		//no more features below this line

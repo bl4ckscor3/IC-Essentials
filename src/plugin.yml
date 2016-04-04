@@ -1,6 +1,6 @@
 name: IC-Essentials
-main: com.igneouscraft.plugin.icessentials.ICEssentials
-version: 0.3
+main: net.igneouscraft.plugin.icessentials.ICEssentials
+version: 0.4
 author: [bl4ckscor3]
 description: Adds tons of essentials to the server!
 commands:
@@ -13,3 +13,6 @@ commands:
     ichelp:
         description: Helps with the plugin.
         usage: /<command>
+    rb:
+        description: Main command.
+        usage: /rb <add|abort|remove|start|stop|restart>

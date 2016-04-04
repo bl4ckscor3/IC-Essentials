@@ -56,11 +56,15 @@ public class HelpMenu extends CommandFeature
 		else
 		{
 			helpToSend.add("~~~~~~~~~~~~" + ChatColor.BLUE + "IC-Essentials Help" + ChatColor.GOLD + "~~~~~~~~~~~~");
+			helpToSend.add("Syntax: " + ChatColor.WHITE + getSyntax());
+			helpToSend.add("");
 			helpToSend.addAll(Arrays.asList(getExplanation()));
 			helpToSend.add("");
 			helpToSend.add("Author: " + ChatColor.WHITE + getAuthor());
 			helpToSend.add("Version: " + ChatColor.WHITE + getVersion());
 		}
+		
+		helpToSend.add("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 		
 		for(String s : helpToSend)
 		{
@@ -108,11 +112,5 @@ public class HelpMenu extends CommandFeature
 	public String getChatPrefix()
 	{
 		return "" + ChatColor.GOLD;
-	}
-	
-	@Override
-	public boolean useDefaultPrefix()
-	{
-		return false;
 	}
 }

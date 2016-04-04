@@ -12,6 +12,7 @@ import net.igneouscraft.plugin.icessentials.features.ExampleFeature;
 import net.igneouscraft.plugin.icessentials.features.HelpMenu;
 import net.igneouscraft.plugin.icessentials.features.RainbowBeacons;
 import net.igneouscraft.plugin.icessentials.features.ReloadPlugin;
+import net.igneouscraft.plugin.icessentials.features.elytralaunch.ElytraLaunch;
 
 /**
  * The main class of this plugin. Please only add features in here and don't modify anything else
@@ -30,6 +31,7 @@ public class ICEssentials extends JavaPlugin
 	{
 		reloadConfig();
 		//add your features alphabetically below this line
+		addFeature(new ElytraLaunch());
 		addFeature(new ExampleFeature()); //adding the example feature
 		addFeature(new RainbowBeacons(this));
 		addFeature(new ReloadPlugin());

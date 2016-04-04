@@ -1,7 +1,7 @@
 name: IC-Essentials
 main: net.igneouscraft.plugin.icessentials.ICEssentials
-version: 0.4
-author: [bl4ckscor3]
+version: 0.5
+author: [bl4ckscor3,JustRamon]
 description: Adds tons of essentials to the server!
 commands:
     example:
@@ -16,3 +16,20 @@ commands:
     rb:
         description: Main command.
         usage: /rb <add|abort|remove|start|stop|restart>
+
+permissions:
+    icessentials.elytralaunch.iron:
+        description: Allows you to use the iron elytra launcher.
+        default: op
+        
+    icessentials.elytralaunch.gold:
+        description: Allows you to use the gold elytra launcher.
+        default: op
+        children:
+            icessentials.elytralaunch.iron: true
+            
+    icessentials.elytralaunch.diamond:
+        description: Allows you to use the diamond elytra launcher.
+        default: op
+        children:
+            icessentials.elytralaunch.gold: true

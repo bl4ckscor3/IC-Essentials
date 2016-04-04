@@ -29,25 +29,28 @@ public class HelpMenu extends CommandFeature
 	{
 		ArrayList<String> helpToSend = new ArrayList<String>();
 
+		helpAdder:
 		if(args.length == 1)
 		{	
 			for(Feature f : features)
 			{
 				boolean cmd = f instanceof CommandFeature;
 				
-				if((cmd ? ((CommandFeature)f).getCommandName() : getName()).equals(args[0])) //if the currently iterated feature is the one the user requested
+				if(f.getName().equalsIgnoreCase(args[0])) //if the currently iterated feature is the one the user requested
 				{
-					helpToSend.add("~~~~~~~~~~~~" + ChatColor.BLUE + "Help for: " + (cmd ? ((CommandFeature)f).getCommandName() : getName()) + ChatColor.GOLD + "~~~~~~~~~~~~");
+					helpToSend.add("~~~~~~~~~~~~" + ChatColor.BLUE + "Help for: " + f.getName() + ChatColor.GOLD + "~~~~~~~~~~~~");
 					
 					if(cmd)
+					{
 						helpToSend.add("Syntax: " + ChatColor.WHITE + ((CommandFeature)f).getSyntax());
+						helpToSend.add("");
+					}
 					
-					helpToSend.add("");
 					helpToSend.addAll(Arrays.asList(f.getExplanation()));
 					helpToSend.add("");
 					helpToSend.add("Author: " + ChatColor.WHITE + f.getAuthor());
 					helpToSend.add("Version: " + ChatColor.WHITE + f.getVersion());
-					break;
+					break helpAdder;
 				}
 			}
 			

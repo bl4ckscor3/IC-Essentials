@@ -1,5 +1,7 @@
 package net.igneouscraft.plugin.icessentials;
 
+import java.util.HashMap;
+
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Listener;
 
@@ -34,6 +36,16 @@ public abstract class Feature implements IHelp
 	public String getChatPrefix()
 	{
 		return ICEssentials.prefix;
+	}
+	
+	/**
+	 * Use "return new HashMapBuilder<String,Object>().add("config.address", "thisIsTheValue").add("config.anotherOne", "anotherValue").build();" to easily set up your config values
+	 * You can use integers, doubles, strings and everything else for the value.
+	 * @return A HashMap containing all config options with their corresponding values.
+	 */
+	public HashMap<String,Object> getConfigEntries()
+	{
+		return new HashMap<String,Object>();
 	}
 	
 	/**

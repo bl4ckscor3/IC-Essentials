@@ -29,6 +29,7 @@ public class ICEssentials extends JavaPlugin
 	@Override
 	public void onEnable()
 	{
+		features.clear();
 		reloadConfig();
 		//add your features alphabetically below this line
 		addFeature(new ElytraLaunch());
@@ -68,7 +69,7 @@ public class ICEssentials extends JavaPlugin
 	 * Sets up a feature to use: Generates the neccessary config value and registers listeners
 	 * @param feature The feature to set up
 	 */
-	public void addFeature(Feature feature)
+	private void addFeature(Feature feature)
 	{
 		getConfig().addDefault(feature.getConfigPath(), true);
 
@@ -77,6 +78,14 @@ public class ICEssentials extends JavaPlugin
 			for(Listener l : feature.getListeners())
 			{
 				getServer().getPluginManager().registerEvents(l, this);
+			}
+		}
+		
+		if(feature.getConfigEntries().size() != 0)
+		{
+			for(String s : feature.getConfigEntries().keySet())
+			{
+				getConfig().addDefault(s, feature.getConfigEntries().get(s));
 			}
 		}
 		

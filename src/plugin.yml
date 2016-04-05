@@ -1,6 +1,6 @@
 name: IC-Essentials
 main: net.igneouscraft.plugin.icessentials.ICEssentials
-version: 0.5.1
+version: 0.5.2
 author: [bl4ckscor3,JustRamon]
 description: Adds tons of essentials to the server!
 commands:
@@ -10,8 +10,8 @@ commands:
     icreload:
         description: Reloads the plugin.
         usage: /<command>
-    ichelp:
-        description: Helps with the plugin.
+    help:
+        description: Overrides the default help to include custom help in the same command.
         usage: /<command>
     rb:
         description: Main command.
@@ -31,3 +31,9 @@ permissions:
         default: op
         children:
             icessentials.elytralaunch.gold: true
+    icessentials.rainbowbeacons:
+        description: Allows you to manage rainbow beacons.
+        default: op
+    icessentials.reload:
+        description: Allows you to reload IC-Essentials.
+        default: op

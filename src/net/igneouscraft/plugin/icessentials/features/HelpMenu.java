@@ -8,7 +8,6 @@ import org.bukkit.plugin.Plugin;
 
 import net.igneouscraft.plugin.icessentials.CommandFeature;
 import net.igneouscraft.plugin.icessentials.Feature;
-import net.igneouscraft.plugin.icessentials.ICEssentials;
 import net.md_5.bungee.api.ChatColor;
 
 /**
@@ -54,7 +53,16 @@ public class HelpMenu extends CommandFeature
 				}
 			}
 			
-			sendMessage(sender, ICEssentials.prefix + "No help found.");
+			//if no ic-essentials feature fit the args
+			String cmd = "bukkit:help ";
+			
+			for(String s : args)
+			{
+				cmd += s + " ";
+			}
+			
+			pl.getServer().dispatchCommand(sender, cmd.trim());
+			return;
 		}
 		else
 		{
@@ -78,7 +86,7 @@ public class HelpMenu extends CommandFeature
 	@Override
 	public String getCommandName()
 	{
-		return "ichelp";
+		return "help";
 	}
 
 	@Override
@@ -90,7 +98,7 @@ public class HelpMenu extends CommandFeature
 	@Override
 	public String[] getExplanation()
 	{
-		return new String[]{"Shows help for features."};
+		return new String[]{"Helps with IC-Essentials' features and commands, including other plugins."};
 	}
 
 	@Override
@@ -102,7 +110,7 @@ public class HelpMenu extends CommandFeature
 	@Override
 	public String getVersion()
 	{
-		return "0.1";
+		return "1.2";
 	}
 
 	@Override

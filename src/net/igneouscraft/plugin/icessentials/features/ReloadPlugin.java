@@ -14,9 +14,12 @@ public class ReloadPlugin extends CommandFeature
 	@Override
 	public void executeCommand(Plugin pl, CommandSender sender, String[] args)
 	{
-		pl.reloadConfig();
-		pl.saveConfig();
-		sendMessage(sender, "Config successfully reloaded.");
+		if(sender.hasPermission("icessentials.reload"))
+		{
+			pl.reloadConfig();
+			pl.saveConfig();
+			sendMessage(sender, "Config successfully reloaded.");
+		}
 	}
 
 	@Override
@@ -24,7 +27,7 @@ public class ReloadPlugin extends CommandFeature
 	{
 		return "icreload";
 	}
-	
+
 	@Override
 	public String getConfigPath()
 	{
@@ -46,7 +49,7 @@ public class ReloadPlugin extends CommandFeature
 	@Override
 	public String getVersion()
 	{
-		return "0.1";
+		return "1.0";
 	}
 
 	@Override

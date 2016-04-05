@@ -35,7 +35,7 @@ public class RainbowBeacons extends CommandFeature implements Listener
 	private static boolean running = false;
 	private static final int tickSpeed = 2; //how fast the beacon's color changes
 	private static Plugin pl;
-	
+
 	/**
 	 * @param p The plugin this class got registered to (IC-Essentials)
 	 */
@@ -43,108 +43,111 @@ public class RainbowBeacons extends CommandFeature implements Listener
 	{
 		pl = p;
 	}
-	
+
 	@Override
 	public void executeCommand(Plugin pl, CommandSender sender, String[] args)
 	{
-		try
+		if(sender.hasPermission("icessentials.rainbowbeacons"))
 		{
-			if(!(sender instanceof Player))
+			try
 			{
-				sendMessage(sender, "You can only use this feature ingame.");
-				return;
-			}
-
-			Player p = (Player)sender;
-
-			if(args.length == 1)
-			{
-				switch(args[0])
+				if(!(sender instanceof Player))
 				{
-					case "add":
-						waiting.put(p, "add");
-						sendMessage(p, "Please rightclick the beacon you want to add.");
-						break;
-					case "remove":
-						waiting.put(p, "remove");
-						sendMessage(p, "Please rightclick the beacon you want to remove.");
-						break;
-					case "abort":
-						waiting.remove(p);
-						sendMessage(p, "You are no longer modifying the beacons.");
-						break;
-					case "start":
-						if(!running)
-						{
-							List<String> content = getContent();
-
-							if(content.size() == 0)
-							{
-								sendMessage(p, "There are no rainbow beacons.");
-								return;
-							}
-
-							for(String s : content)
-							{
-								Location l = getSavedAsLocation(s);
-								Block b = l.getWorld().getBlockAt(l);
-
-								if(!isBeacon(b, p))
-									continue;
-
-								start(b);
-							}
-
-							running = true;
-							sendMessage(p, "The rainbow beacons have been started.");
-						}
-						else
-							sendMessage(p, "The rainbow beacons are already running.");
-
-						break;
-					case "stop":
-						if(running)
-						{
-							stopBeacons();
-							running = false;
-							sendMessage(p, "The rainbow beacons have been stopped.");
-						}
-						else
-							sendMessage(p, "The rainbow beacons aren't running.");
-
-						break;
-					case "restart":
-						if(running)
-						{
-							stopBeacons();
-
-							List<String> content = getContent();
-
-							for(String s : content)
-							{
-								Location l = getSavedAsLocation(s);
-								Block b = l.getWorld().getBlockAt(l);
-
-								if(!isBeacon(b, p))
-									continue;
-
-								start(b);
-							}
-
-							sendMessage(p, "The rainbow beacons have been restarted.");
-						}
-						else
-							sendMessage(p, "The rainbow beacons aren't running.");
-
-						break;
-					default:
-						sendMessage(p, "Correct usage: /rb <add|abort|remove|start|stop|restart>");
+					sendMessage(sender, "You can only use this feature ingame.");
+					return;
 				}
+
+				Player p = (Player)sender;
+
+				if(args.length == 1)
+				{
+					switch(args[0])
+					{
+						case "add":
+							waiting.put(p, "add");
+							sendMessage(p, "Please rightclick the beacon you want to add.");
+							break;
+						case "remove":
+							waiting.put(p, "remove");
+							sendMessage(p, "Please rightclick the beacon you want to remove.");
+							break;
+						case "abort":
+							waiting.remove(p);
+							sendMessage(p, "You are no longer modifying the beacons.");
+							break;
+						case "start":
+							if(!running)
+							{
+								List<String> content = getContent();
+
+								if(content.size() == 0)
+								{
+									sendMessage(p, "There are no rainbow beacons.");
+									return;
+								}
+
+								for(String s : content)
+								{
+									Location l = getSavedAsLocation(s);
+									Block b = l.getWorld().getBlockAt(l);
+
+									if(!isBeacon(b, p))
+										continue;
+
+									start(b);
+								}
+
+								running = true;
+								sendMessage(p, "The rainbow beacons have been started.");
+							}
+							else
+								sendMessage(p, "The rainbow beacons are already running.");
+
+							break;
+						case "stop":
+							if(running)
+							{
+								stopBeacons();
+								running = false;
+								sendMessage(p, "The rainbow beacons have been stopped.");
+							}
+							else
+								sendMessage(p, "The rainbow beacons aren't running.");
+
+							break;
+						case "restart":
+							if(running)
+							{
+								stopBeacons();
+
+								List<String> content = getContent();
+
+								for(String s : content)
+								{
+									Location l = getSavedAsLocation(s);
+									Block b = l.getWorld().getBlockAt(l);
+
+									if(!isBeacon(b, p))
+										continue;
+
+									start(b);
+								}
+
+								sendMessage(p, "The rainbow beacons have been restarted.");
+							}
+							else
+								sendMessage(p, "The rainbow beacons aren't running.");
+
+							break;
+						default:
+							sendMessage(p, "Correct usage: /rb <add|abort|remove|start|stop|restart>");
+					}
+				}
+				else
+					sendMessage(p, "Correct usage: /rb <add|abort|remove|start|stop|restart>");
 			}
-			else
-				sendMessage(p, "Correct usage: /rb <add|abort|remove|start|stop|restart>");
+			catch(Exception e){}
 		}
-		catch(Exception e){}
 
 		return;
 	}
@@ -252,7 +255,7 @@ public class RainbowBeacons extends CommandFeature implements Listener
 		{
 			b = block;
 		}
-		
+
 		@Override
 		public void run()
 		{
@@ -535,7 +538,7 @@ public class RainbowBeacons extends CommandFeature implements Listener
 	@Override
 	public String getVersion()
 	{
-		return "0.3.1";
+		return "1.3.1";
 	}
 
 	@Override
@@ -555,13 +558,13 @@ public class RainbowBeacons extends CommandFeature implements Listener
 	{
 		return "rainbowBeacons";
 	}
-	
+
 	@Override
 	public String getChatPrefix()
 	{
 		return ChatColor.GREEN + "[" + ChatColor.GOLD + "RainbowBeacons" + ChatColor.GREEN + "] " + ChatColor.WHITE;
 	}
-	
+
 	@Override
 	public Listener[] getListeners()
 	{

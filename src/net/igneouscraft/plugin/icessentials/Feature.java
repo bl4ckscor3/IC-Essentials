@@ -41,7 +41,7 @@ public abstract class Feature implements IHelp
 	/**
 	 * Use "return new HashMapBuilder<String,Object>().add("config.address", "thisIsTheValue").add("config.anotherOne", "anotherValue").build();" to easily set up your config values
 	 * You can use integers, doubles, strings and everything else for the value.
-	 * @return A HashMap containing all config options with their corresponding values.
+	 * @return A HashMap containing all extra config options needed for this feature, additionally to its enable/disable option
 	 */
 	public HashMap<String,Object> getConfigEntries()
 	{

@@ -1,6 +1,6 @@
 name: IC-Essentials
 main: net.igneouscraft.plugin.icessentials.ICEssentials
-version: 0.6.1
+version: 0.7
 author: [bl4ckscor3,JustRamon]
 description: Adds tons of essentials to the server!
 commands:
@@ -14,8 +14,12 @@ commands:
         description: Overrides the default help to include custom help in the same command.
         usage: /<command>
     rb:
-        description: Main command.
-        usage: /rb <add|abort|remove|start|stop|restart>
+        description: Manages rainbow beacons.
+        usage: /<command> <add|abort|remove|start|stop|restart>
+    nick:
+        description: Changes the nickname of a player.
+        usage: /<command> [player] <nickname|off>
+        aliases: [enick,nickname,enickname]
 
 permissions:
     icessentials.elytralaunch.iron:
@@ -36,4 +40,13 @@ permissions:
         default: op
     icessentials.reload:
         description: Allows you to reload IC-Essentials.
+        default: op
+    icessentials.nick:
+        description: Allows you to change the colors of your nickname.
+        default: op
+    icessentials.nick.others:
+        description: Allows you to change the nickname of anyone else.
+        default: op
+    icessentials.nick.special:
+        description: Allows you to change your own nick to something with more than just colors.
         default: op

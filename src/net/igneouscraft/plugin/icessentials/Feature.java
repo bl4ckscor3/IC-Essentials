@@ -2,6 +2,7 @@ package net.igneouscraft.plugin.icessentials;
 
 import java.util.HashMap;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Listener;
 
@@ -55,6 +56,6 @@ public abstract class Feature implements IHelp
 	 */
 	public final void sendMessage(CommandSender sender, String msg)
 	{
-		sender.sendMessage(getChatPrefix() + msg);
+		sender.sendMessage(getChatPrefix() + ChatColor.translateAlternateColorCodes('&', msg));
 	}
 }

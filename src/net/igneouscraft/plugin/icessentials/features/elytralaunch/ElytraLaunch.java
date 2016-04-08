@@ -4,6 +4,10 @@ import org.bukkit.event.Listener;
 
 import net.igneouscraft.plugin.icessentials.Feature;
 
+/**
+ * Adds jumppads that are supposed to be used with Elytras to launch the player into the air
+ * @author JustRamon
+ */
 public class ElytraLaunch extends Feature
 {
 	@Override

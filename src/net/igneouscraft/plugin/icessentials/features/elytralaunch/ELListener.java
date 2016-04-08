@@ -8,6 +8,10 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
 
+/**
+ * Eventlistener for ElytraLaunch
+ * @author JustRamon
+ */
 public class ELListener implements Listener
 {
 	private ElytraLaunch feature;

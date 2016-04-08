@@ -1,6 +1,6 @@
 name: IC-Essentials
 main: net.igneouscraft.plugin.icessentials.ICEssentials
-version: 0.6
+version: 0.6.1
 author: [bl4ckscor3,JustRamon]
 description: Adds tons of essentials to the server!
 commands:

@@ -66,13 +66,8 @@ public class HelpMenu extends CommandFeature
 		}
 		else
 		{
-			helpToSend.add("~~~~~~~~~~~~" + ChatColor.BLUE + "IC-Essentials Help" + ChatColor.GOLD + "~~~~~~~~~~~~");
-			helpToSend.add("Syntax: " + ChatColor.WHITE + getSyntax());
-			helpToSend.add("");
-			helpToSend.addAll(Arrays.asList(getExplanation()));
-			helpToSend.add("");
-			helpToSend.add("Author: " + ChatColor.WHITE + getAuthor());
-			helpToSend.add("Version: " + ChatColor.WHITE + getVersion());
+			pl.getServer().dispatchCommand(sender, "bukkit:help");
+			return;
 		}
 		
 		helpToSend.add("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");

@@ -8,6 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import net.igneouscraft.plugin.icessentials.features.ColorCodes;
 import net.igneouscraft.plugin.icessentials.features.ExampleFeature;
 import net.igneouscraft.plugin.icessentials.features.HelpMenu;
 import net.igneouscraft.plugin.icessentials.features.Nick;
@@ -33,6 +34,7 @@ public class ICEssentials extends JavaPlugin
 		features.clear();
 		reloadConfig();
 		//add your features alphabetically below this line
+		addFeature(new ColorCodes());
 		addFeature(new ElytraLaunch());
 		addFeature(new ExampleFeature()); //adding the example feature
 		addFeature(new Nick());

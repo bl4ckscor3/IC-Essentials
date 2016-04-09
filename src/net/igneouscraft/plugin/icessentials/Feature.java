@@ -51,11 +51,12 @@ public abstract class Feature implements IHelp
 	
 	/**
 	 * Sends a message to the given instance with the prefix of this feature. If no prefix is given, the plugin's default will be used
+	 * If you want to send color codes but don't want them to get translated, then use &/ to prevent the translation from happening
 	 * @param sender The instance to send the message to
 	 * @param msg The message to send
 	 */
 	public final void sendMessage(CommandSender sender, String msg)
 	{
-		sender.sendMessage(getChatPrefix() + ChatColor.translateAlternateColorCodes('&', msg));
+		sender.sendMessage(getChatPrefix() + ChatColor.translateAlternateColorCodes('&', msg).replace("&/", "&"));
 	}
 }

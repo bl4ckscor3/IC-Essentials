@@ -1,6 +1,6 @@
 name: IC-Essentials
 main: net.igneouscraft.plugin.icessentials.ICEssentials
-version: 0.7
+version: 0.8
 author: [bl4ckscor3,JustRamon]
 description: Adds tons of essentials to the server!
 commands:
@@ -20,6 +20,9 @@ commands:
         description: Changes the nickname of a player.
         usage: /<command> [player] <nickname|off>
         aliases: [enick,nickname,enickname]
+    cc:
+        description: Shows all the chat formatting codes.
+        usage: /<command>
 
 permissions:
     icessentials.elytralaunch.iron:
@@ -49,4 +52,7 @@ permissions:
         default: op
     icessentials.nick.special:
         description: Allows you to change your own nick to something with more than just colors.
+        default: op
+    icessentials.cc:
+        description: Gives access to the /cc command.
         default: op

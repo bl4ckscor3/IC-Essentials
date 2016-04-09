@@ -28,7 +28,7 @@ public class Nick extends CommandFeature
 			if(sender.hasPermission("icessentials.nick.others"))
 			{
 				if(Bukkit.getPlayer(args[0]) != null)
-					pl.getServer().dispatchCommand(pl.getServer().getConsoleSender(), "essentials:nick " + args[0] + " " + args[1]);
+					pl.getServer().dispatchCommand(sender, "essentials:nick " + args[0] + " " + args[1]);
 				else
 					sendMessage(sender, ChatColor.DARK_RED + "This player is not on the server.");
 			}
@@ -111,7 +111,7 @@ public class Nick extends CommandFeature
 	@Override
 	public String getVersion()
 	{
-		return "1.0";
+		return "1.1";
 	}
 
 	@Override
